@@ -87,8 +87,8 @@ function clearData(){
     document.getElementById("inputCur2").value = "";
     document.getElementById("curr1").value = "Select Currency";
     document.getElementById("curr2").value = "Select Currency";
-    document.getElementById("imgCurr1").src = "";
-    document.getElementById("imgCurr2").src = "";
+    document.getElementById("imgCurr1").src = "...";
+    document.getElementById("imgCurr2").src = "...";
 
     console.log("Clear button is clicked");
     // alert("Clear button is clicked");
