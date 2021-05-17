@@ -97,7 +97,7 @@ async function fact(){
 
     api = api + n;
 
-    let response = await fetch(api);
+    let response = await fetch(api, {referrerPolicy: "origin-when-cross-origin"});
     let data = await response.text();
 
     if(data.includes("unremarkable") || data.includes("boring") || data.includes("missing") || data.includes("uninteresting") ){
@@ -124,7 +124,7 @@ async function getYear(){
 
     api = api + n + "/year";
 
-    let response = await fetch(api);
+    let response = await fetch(api, {referrerPolicy: "origin-when-cross-origin"});
     let data = await response.text();
 
     if(data.includes("unremarkable") || data.includes("boring") || data.includes("missing") || data.includes("uninteresting") ){
