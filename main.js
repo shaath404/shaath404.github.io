@@ -144,7 +144,7 @@ function makeTheString(){
     
     var ourString = ""
 
-    document.getElementById("headerNumber").innerHTML = "What's behind " + getNum();
+    document.getElementById("headerNumber").innerHTML = "What's behind " + getNum() + "?";
     
     ourString += checkPrim() + "<br>";
     ourString += evenOrOdd() + "<br>";
