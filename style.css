@@ -1,13 +1,22 @@
 body{
 
-    background-color: black;
+    background-color: rgb(0, 0, 0);
     color: rgb(255, 255, 255);
     
 }
 
+.logo-place{
+    margin-top: 20 !important;
+}
 
+.welcome-card{
+
+    background-color: rgb(131, 130, 130);
+    color: rgb(255, 255, 255);
+}
 
 .my-row{
+
     border: 1px solid white;
 }
 

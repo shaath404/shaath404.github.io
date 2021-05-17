@@ -1,128 +1,163 @@
-//https://www.countryflags.io/us/flat/32.png
-//https://free.currconv.com/api/v7/convert?q=USD_PHP&compact=ultra&apiKey=d084b60b0a401be385e9
 
-let imgUrl1 = "https://www.countryflags.io/";
-let imgUrl2 = "/flat/32.png";
+function getNum(){
 
-let apiUrl1 = "https://free.currconv.com/api/v7/convert?q=";
-let apiUrl2 = "&compact=ultra&apiKey=d084b60b0a401be385e9";
+    var number = document.getElementById("numberHolder").value;
 
-function setFlag1(){
+    return number;
+}
 
-    var e = document.getElementById("curr1");
-    var value = e.options[e.selectedIndex].value; // get selected option value
-    var text = e.options[e.selectedIndex].text;
+function checkPrim(){
+
+    num = getNum();
+
+    var notPrimeMessage = " is not a prime number";
+    var primeMessage = " is a prime number";
+
+    // Corner case
+    if (num <= 1)
+        return num + notPrimeMessage;
+
+    // Check from 2 to n-1
+    var i = 2
+    for (i = 2; i < num; i++)
+        if (num % i == 0)
+            return num + notPrimeMessage;
+
+    // otherwise return true
+    return num + primeMessage;
+
+
+}
+
+function evenOrOdd(){
+
+    var even = " is an even number";
+    var odd = " is an odd number";
+
+    var num = getNum();
+
+    if(num % 2 == 0)
+        return num + even;
+
+    return num + odd;
     
-    var country = text.slice(0,2);
+}
 
-    url = imgUrl1 + country + imgUrl2;
+function nthFib(){
 
-    if(text == "Select Currency"){
+    var num = getNum();
+    
+    let [a, b] = [0, 1];
 
-        document.getElementById("imgCurr1").src = "";
+    while (num-- > 0) {
+        [a, b] = [b, a + b];
+    }
+
+
+    if(b == "Infinity"){
+
+        b = " a massive number ";
+    }
+
+    return getNum() + "th fibbinocci number is " + b;
+}
+
+function factorial(){
+
+    let answer = 1;
+    var n = getNum();
+
+    if (n == 0 || n == 1)
+    {
+        return answer;
+    }
+    else
+    {
+        for(var i = n; i >= 1; i--)
+        {
+            answer = answer * i;
+        }
+    }
+
+    if(answer == "Infinity"){
+
+        answer = " a massive number ";
+    }
+
+    return n + "! is " + answer;
+
+}
+
+async function fact(){
+
+    //http://numbersapi.com/55
+
+    var api = "http://numbersapi.com/";
+    var n = getNum();
+
+    api = api + n;
+
+    let response = await fetch(api);
+    let data = await response.text();
+
+    if(data.includes("unremarkable") || data.includes("boring") || data.includes("missing") || data.includes("uninteresting") ){
+
+
     }
     else{
-        
-        document.getElementById("imgCurr1").src = url;
+        // unremarkable - boring - missing - uninteresting 
+        console.log(data); 
+
+        document.getElementById("bodyInfo").innerHTML += data + "<br>";
     }
+    
 
-    // alert(url);
-
+    
 }
 
-function setFlag2(){
+async function getYear(){
 
-    var e = document.getElementById("curr2");
-    var value = e.options[e.selectedIndex].value; // get selected option value
-    var text = e.options[e.selectedIndex].text;
-    
-    var country = text.slice(0,2);
+    //http://numbersapi.com/55/yaer
 
-    url = imgUrl1 + country + imgUrl2;
+    var api = "http://numbersapi.com/";
+    var n = getNum();
 
-    if(text == "Select Currency"){
+    api = api + n + "/year";
 
-        document.getElementById("imgCurr2").src = "";
+    let response = await fetch(api);
+    let data = await response.text();
+
+    if(data.includes("unremarkable") || data.includes("boring") || data.includes("missing") || data.includes("uninteresting") ){
+
+
     }
     else{
+        // unremarkable - boring - missing - uninteresting 
+        console.log(data); 
 
-        document.getElementById("imgCurr2").src = url;
+        document.getElementById("bodyInfo").innerHTML += data + "<br>";
     }
-    
-
-    // alert(url);
 
 }
 
-function swap(){
-
-    var e = document.getElementById("curr1");
-    var value1 = e.options[e.selectedIndex].value; // get selected option value
-
-    var a = document.getElementById("curr2");
-    var value2 = a.options[a.selectedIndex].value; // get selected option value
-
-    // swaping the elements
-    document.getElementById("curr1").value = value2;
-    document.getElementById("curr2").value = value1;
+function makeTheString(){
     
-    // changing the flags
-    setFlag1();
-    setFlag2();
+    var ourString = ""
 
-    var in1 = document.getElementById("inputCur1").value;
-    var in2 = document.getElementById("inputCur2").value;
+    document.getElementById("headerNumber").innerHTML = "What's behind " + getNum();
+    
+    ourString += checkPrim() + "<br>";
+    ourString += evenOrOdd() + "<br>";
+    ourString += nthFib() + "<br>";
+    ourString += factorial() + "<br>";
+    // ourString += fact() + "<br>";
+    fact();
+    getYear();
 
-    document.getElementById("inputCur1").value = in2;
-    document.getElementById("inputCur2").value = in1;
+    
 
+    document.getElementById("bodyInfo").innerHTML = ourString;
 
-    // alert(value1 + " " + value2);
-    console.log("Swap is clicked");
+    // alert(ourString);
 }
 
-function clearData(){
-
-    document.getElementById("inputCur1").value = "";
-    document.getElementById("inputCur2").value = "";
-    document.getElementById("curr1").value = "Select Currency";
-    document.getElementById("curr2").value = "Select Currency";
-    document.getElementById("imgCurr1").src = "...";
-    document.getElementById("imgCurr2").src = "...";
-
-    console.log("Clear button is clicked");
-    // alert("Clear button is clicked");
-}
-
-async function calc(){
-
-
-    var currencyVal1 = document.getElementById("inputCur1").value;
-    
-    var e1 = document.getElementById("curr1");
-    var value1 = e1.options[e1.selectedIndex].value; // get selected option value
-    var text1 = e1.options[e1.selectedIndex].text;
-
-    var e2 = document.getElementById("curr2");
-    var value2 = e2.options[e2.selectedIndex].value; // get selected option value
-    var text2 = e2.options[e2.selectedIndex].text;
-
-    const convertion = text1 + "_" + text2;
-
-    var api = apiUrl1 + convertion + apiUrl2;
-
-    const response = await fetch(api);
-    const data = await response.json();
-
-    var unitValue = data[convertion];
-    
-    const finalResult = unitValue * currencyVal1;
-
-    console.log(data);
-
-    document.getElementById("inputCur2").value = finalResult;
-
-    console.log("Calc button clicked");
-    // alert(api);
-
-}
