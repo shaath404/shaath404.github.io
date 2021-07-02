@@ -32,9 +32,9 @@ function generateMeme(){
         var image = canvas.toDataURL('image/jpeg', 1);
         console.log(image);
         // window.open(image);
-
-        debugBase64(image);
         
+        debugBase64(image);
+        alert(image);
     });
 
 
