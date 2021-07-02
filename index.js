@@ -33,7 +33,7 @@ function generateMeme(){
         console.log(image);
         // window.open(image);
         
-        debugBase64(image);
+        //debugBase64(image);
         alert(image);
     });
 
