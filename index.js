@@ -33,8 +33,9 @@ function generateMeme(){
         console.log(image);
         // window.open(image);
         
-        //debugBase64(image);
         alert(image);
+
+        document.getElementById("finalImageCopy").src = image;
     });
 
 
