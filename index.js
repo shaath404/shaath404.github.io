@@ -26,18 +26,22 @@ function readUrl() {
 function generateMeme(){
 
     window.scrollTo(0,0);
-
-    html2canvas(document.querySelector("#theUserMeme")).then(canvas => {
-        // document.body.appendChild(canvas)
+    
+    html2canvas(document.querySelector("#theUserMeme")).then(function(canvas) {   
+        
         var image = canvas.toDataURL('image/jpeg', 1);
         console.log(image);
-        // window.open(image);
         
-        alert(image);
+        
+        alert("Meme must be saved in your device");
 
-        document.getElementById("finalImageCopy").src = image;
+        document.getElementById("memeDownloadBtnImage").href = image;
+        document.getElementById("memeDownloadBtnImage").click();
+        // window.open(image);
+        // document.getElementById("finalImageCopy").src = image;
     });
 
+    // window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);
 
 }
 
@@ -45,13 +49,11 @@ function generateMeme(){
 
 function changeMemeText(){
 
-
     var textEntered = document.getElementById("memeChanger").value;
 
     alert(textEntered);
 
     document.getElementById("memeWords").innerText = textEntered; 
-
 
 }
 

@@ -38,52 +38,52 @@
 
 
     <div class="container">
-        <div id="theUserMeme">
 
-            <div class="row">
 
-                <p id="memeWords">
-                    When I see something lol 
- 
-                </p>
+        <div class="row">
+            <div class="col-md">
+
+                <div id="theUserMeme">
+
+                    <div class="row">
+        
+                        <p id="memeWords">
+                            When I see something lol
+                        </p>
+        
+                    </div>
+        
+                    <div class="row">
+                        <img id = "memeImage" src="images/init meme.jpg">
+                    </div>
+        
+                </div>
+        
 
             </div>
 
-            <div class="row">
-                <img id = "memeImage" src="images/init meme.jpg">
-            </div>
+            <div class="col-md">
 
+                <div class="row p-4">
+                    <input type="file" class="form-control" id="memeUploader" onchange ="readUrl()" for = "upload">
+                </div>
+                
+                <div class="row p-4">
+                    <input type="text" class="form-control" id="memeChanger" placeholder="Your meme goes here ...." onchange="changeMemeText()">                </div>
+                    
+                    <a id="memeDownloadBtnImage" download>
+                        <button type="button" class="btn btn-primary" onclick="generateMeme();">Save Meme</button>
+                    </a>
+                </div>
+                
+          
+
+            </div>
         </div>
+
     </div>
 
-    <div class="container">
-
-        <div class="row">
-
-            <div class="col p-4">
-                <input type="file" class="form-control" id="memeUploader" onchange ="readUrl()" for = "upload">
-            </div>
-
-
-        </div>
-
-        <div class="row">
-            <div class="col">
-                <input type="text" class="form-control" id="memeChanger" placeholder="Your meme goes here ...." onchange="changeMemeText()">
-                <button type="button" class="btn btn-primary" onclick="generateMeme();">Generate</button>
-
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col">
-                <img  src = "" id = "finalImageCopy">
-            </div>
-        </div>
-
-    </div>
-
-  
+    <!-- <img id = "finalImageCopy"> -->
 
     
 </body>
