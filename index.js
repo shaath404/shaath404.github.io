@@ -33,6 +33,7 @@ function generateMeme(){
     domtoimage.toBlob(document.getElementById('theUserMeme'), options)
     .then(function (blob) {
         window.saveAs(blob, 'instant meme.jpeg');
+        alert("**********Plz read*********/n" + "Image must be saved in your device /n" + "If it's white try again, otherwise, feel free to get in touch with us");
     });
     
 }
