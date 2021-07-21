@@ -1,0 +1,64 @@
+
+html{
+
+    height: 100%;
+}
+
+#logoWords{
+
+    padding: 8px;
+    border: solid white;
+    font-size: 35px;
+    font-family: 'Bangers', cursive;
+}
+
+body{
+
+    /* min-height: 100%; */
+    /* position: relative; */
+    /* min-height: 350px; */
+    background-color: rgb(78, 206, 95);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#footer {
+    
+    padding: 3em;
+    background-color: rgb(54, 105, 62);
+    margin-top: auto;
+}
+
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    color: rgb(255, 255, 255);
+}
+
+/* Social Media Icons */
+
+.fa:hover {
+    color: rgb(0, 0, 0);
+}
+
+#listsForSupport{
+    
+    font-size: 29px;
+    font-family: 'Bangers', cursive;
+}
+
+h2{
+
+    font-size: 27px;
+    font-family: 'STIX Two Math', serif;
+}
+
+#supportDetail{
+    font-size: 21px;
+
+}
