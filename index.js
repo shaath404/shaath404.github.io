@@ -27,7 +27,7 @@ function readUrl() {
 function generateMeme(){
     
     const scale = 2;
-    const elm = document.getElementById('theUserMeme');
+    const domNode = document.getElementById('theUserMeme');
 
     var options = {
         quality: 1,
@@ -39,11 +39,12 @@ function generateMeme(){
     alertMsg += "*********** Thanks for reading ***********";
 
     domtoimage.toBlob(document.getElementById('theUserMeme'), {
-        height: elm.offsetHeight * scale,
+        width: domNode.clientWidth * scale,
+        height: domNode.clientHeight * scale,
         style: {
-          transform: `scale(${scale}) translate(${elm.offsetWidth / 2 / scale}px, ${elm.offsetHeight / 2 / scale}px)`
-        },
-        width: elm.offsetWidth * scale})
+         transform: 'scale('+scale+')',
+         transformOrigin: 'top left'
+       }})
     .then(function (blob) {
         
         alert(alertMsg);
