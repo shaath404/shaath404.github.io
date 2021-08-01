@@ -43,7 +43,8 @@
     <!-- Social media icons lib -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
+    <!-- Icon -->
+    <link rel="icon" href="images/tab logo.png">
 </head>
 
 <body>
@@ -127,7 +128,7 @@
 
                 <div class="row">
                     <div class="col p-4">
-                        <input type="file" class="form-control" id="memeUploader" onchange ="readUrl()" for = "upload">
+                        <input type="file" class="form-control" id="memeUploader" onchange ="readUrl()" for = "upload" accept="image/*">
                     </div>
                   
                 </div>
@@ -143,7 +144,7 @@
                     <div class="col p-4">
 
                         <div class="input-group mb-3" id="fontSizeController500">
-                            <input type="number" min = "1" class="form-control" value="25" id="fontSizeController" placeholder="" onchange="changeFontSize()">
+                            <input type="number" min = "1" class="form-control" value="25" id="fontSizeController" placeholder="" onchange="changeFontSize()" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                             <span class="input-group-text" id="basic-addon2">px</span>
                         </div>
 

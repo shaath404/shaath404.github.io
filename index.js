@@ -26,6 +26,9 @@ function readUrl() {
 // (Not done yet)
 function generateMeme(){
     
+    const scale = 2;
+    const elm = document.getElementById('theUserMeme');
+
     var options = {
         quality: 1,
     };
@@ -35,7 +38,12 @@ function generateMeme(){
     alertMsg += "If you didn't get the image that you want try again, otherwise, feel free to get in touch with us \n";
     alertMsg += "*********** Thanks for reading ***********";
 
-    domtoimage.toBlob(document.getElementById('theUserMeme'), options)
+    domtoimage.toBlob(document.getElementById('theUserMeme'), {
+        height: elm.offsetHeight * scale,
+        style: {
+          transform: `scale(${scale}) translate(${elm.offsetWidth / 2 / scale}px, ${elm.offsetHeight / 2 / scale}px)`
+        },
+        width: elm.offsetWidth * scale})
     .then(function (blob) {
         
         alert(alertMsg);
