@@ -144,7 +144,7 @@
                     <div class="col p-4">
 
                         <div class="input-group mb-3" id="fontSizeController500">
-                            <input type="number" min = "1" class="form-control" value="25" id="fontSizeController" placeholder="" onchange="changeFontSize()" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                            <input type="tel" min = "1" class="form-control" value="25" id="fontSizeController" placeholder="" onchange="changeFontSize()" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                             <span class="input-group-text" id="basic-addon2">px</span>
                         </div>
 
@@ -174,6 +174,20 @@
                         <a id="memeDownloadBtnImage" download>
                             <button type="button" class="btn btn-primary" onclick="generateMeme();"> Save Meme </button>
                         </a>     
+                    </div>
+
+                    <div class="col p-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="TandCs">
+                            <label class="form-check-label" for="TandCs">
+                              I agree with
+
+                              <a href="/terms/" target="_blank">
+                                terms and conditions
+                              </a>
+
+                            </label>
+                        </div>
                     </div>
 
                 </div>

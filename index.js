@@ -29,27 +29,45 @@ function generateMeme(){
     const scale = 2;
     const domNode = document.getElementById('theUserMeme');
 
-    var options = {
-        quality: 1,
-    };
-    
+    var checkBox = document.getElementById("TandCs");
+
     var alertMsg = "*********** Please Read *********** \n";
     alertMsg += "Image must be saved in your device \n";
     alertMsg += "If you didn't get the image that you want try again, otherwise, feel free to get in touch with us \n";
     alertMsg += "*********** Thanks for reading ***********";
 
-    domtoimage.toBlob(document.getElementById('theUserMeme'), {
-        width: domNode.clientWidth * scale,
-        height: domNode.clientHeight * scale,
-        style: {
-         transform: 'scale('+scale+')',
-         transformOrigin: 'top left'
-       }})
-    .then(function (blob) {
+    var options = {
+        quality: 1,
+    };
+    
+
+    if (checkBox.checked == true){
+
+        // alert("Sounds good checkbox is working well");
+
+
         
-        alert(alertMsg);
-        window.saveAs(blob, 'instant meme.jpeg');
-    });
+        domtoimage.toBlob(document.getElementById('theUserMeme'), {
+            width: domNode.clientWidth * scale,
+            height: domNode.clientHeight * scale,
+            style: {
+            transform: 'scale('+scale+')',
+            transformOrigin: 'top left'
+        }})
+        .then(function (blob) {
+            
+            alert(alertMsg);
+            window.saveAs(blob, 'instant meme.jpeg');
+        });
+
+    }
+    else{
+
+        alert("You MUST agree with the terms and conditions");
+    }
+
+    
+
     
 }
 
@@ -94,3 +112,4 @@ function alignRight(){
     document.getElementById("memeWords").style.textAlign = "right";
 
 }
+
